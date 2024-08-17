@@ -1,0 +1,43 @@
+{
+  "project": {
+    "packageName": "mes.basic",
+    "version": "1.0.0",
+    "backendPath": "D:\\development\\mes\\mes-basic",
+    "frontendPath": "D:\\development\\mes\\mes-basic"
+  },
+
+  "templates": [
+    {
+      "templateName": "java/single/Controller.java.ftl",
+      "generatorPath": "${backendPath}\\mes-basic-client\\src\\main\\java\\cn\\tfinfo\\microservice\\${packagePath}\\client\\webcontroller\\${moduleName}\\${ClassName}Controller.java"
+    },
+    {
+      "templateName": "java/single/Bo.java.ftl",
+      "generatorPath": "${backendPath}\\mes-basic-biz\\src\\main\\java\\cn\\tfinfo\\microservice\\${packagePath}\\biz\\${moduleName}\\${ClassName}Bo.java"
+    },
+    {
+      "templateName": "java/single/Entity.java.ftl",
+      "generatorPath": "${backendPath}\\mes-basic-common\\src\\main\\java\\cn\\tfinfo\\microservice\\${packagePath}\\common\\entity\\${moduleName}\\${ClassName}Entity.java"
+    },
+    {
+      "templateName": "java/single/front.json.ftl",
+      "generatorPath": "${backendPath}\\mes-basic-common\\src\\main\\java\\cn\\tfinfo\\microservice\\${packagePath}\\common\\entity\\${moduleName}\\CodeFreeTemplate.json"
+    },
+    {
+      "templateName": "java/single/Dao.java.ftl",
+      "generatorPath": "${backendPath}\\mes-basic-persistance\\src\\main\\java\\cn\\tfinfo\\microservice\\${packagePath}\\persistance\\dao\\${moduleName}\\${ClassName}Dao.java"
+    },
+    {
+      "templateName": "xml/Dao.xml.ftl",
+      "generatorPath": "${backendPath}\\mes-basic-persistance\\src\\main\\resources\\mapper\\${moduleName}\\${ClassName}Dao.xml"
+    },
+    {
+      "templateName": "java/single/Request.java.ftl",
+      "generatorPath": "${backendPath}\\mes-basic-client\\src\\main\\java\\cn\\tfinfo\\microservice\\${packagePath}\\client\\request\\${moduleName}\\${ClassName}Request.java"
+    },
+    {
+      "templateName": "java/single/PageRequest.java.ftl",
+      "generatorPath": "${backendPath}\\mes-basic-client\\src\\main\\java\\cn\\tfinfo\\microservice\\${packagePath}\\client\\request\\${moduleName}\\${ClassName}PageRequest.java"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "project": {
+    "packageName": "cn.tfinfo.microservice",
+    "version": "1.0.0",
+    "backendPath": "D:\\development\\mes\\mes-basic",
+    "frontendPath": "D:\\development\\mes\\mes-basic"
+  },
+  "templates": [
+    {
+      "templateName": "java/ms/Controller.java.ftl",
+      "generatorPath": "${backendPath}\\mes-basic-client\\src\\main\\java\\cn\\tfinfo\\microservice\\${packagePath}\\client\\webcontroller\\${moduleName}\\${ClassName}Controller.java"
+    },
+    {
+      "templateName": "java/ms/Bo.java.ftl",
+      "generatorPath": "${backendPath}\\mes-basic-biz\\src\\main\\java\\cn\\tfinfo\\microservice\\${packagePath}\\biz\\${moduleName}\\${ClassName}Bo.java"
+    },
+    {
+      "templateName": "java/ms/Entity.java.ftl",
+      "generatorPath": "${backendPath}\\mes-basic-common\\src\\main\\java\\cn\\tfinfo\\microservice\\${packagePath}\\common\\entity\\${moduleName}\\${ClassName}Entity.java"
+    },
+    {
+      "templateName": "java/ms/front.json.ftl",
+      "generatorPath": "${backendPath}\\mes-basic-common\\src\\main\\java\\cn\\tfinfo\\microservice\\${packagePath}\\common\\entity\\${moduleName}\\CodeFreeTemplate.json"
+    },
+    {
+      "templateName": "java/ms/Dao.java.ftl",
+      "generatorPath": "${backendPath}\\mes-basic-persistance\\src\\main\\java\\cn\\tfinfo\\microservice\\${packagePath}\\persistance\\dao\\${moduleName}\\${ClassName}Dao.java"
+    },
+    {
+      "templateName": "xml/Dao.xml.ftl",
+      "generatorPath": "${backendPath}\\mes-basic-persistance\\src\\main\\resources\\mapper\\${moduleName}\\${ClassName}Dao.xml"
+    },
+    {
+      "templateName": "java/ms/Request.java.ftl",
+      "generatorPath": "${backendPath}\\mes-basic-client\\src\\main\\java\\cn\\tfinfo\\microservice\\${packagePath}\\client\\request\\${moduleName}\\${ClassName}Request.java"
+    },
+    {
+      "templateName": "java/ms/PageRequest.java.ftl",
+      "generatorPath": "${backendPath}\\mes-basic-client\\src\\main\\java\\cn\\tfinfo\\microservice\\${packagePath}\\client\\request\\${moduleName}\\${ClassName}PageRequest.java"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+package cn.tfinfo.microservice.mes.basic.generator.common.service;
+
+import com.baomidou.mybatisplus.extension.service.IService;
+
+/**
+ * 基础服务接口，所有Service接口都要继承
+ */
+public interface BaseService<T> extends IService<T> {
+
+
+}

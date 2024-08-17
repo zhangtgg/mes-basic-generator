@@ -1,0 +1,79 @@
+{
+  "project": {
+    "packageName": "cn.tfinfo.microservice",
+    "version": "1.0.0",
+    "backendPath": "D:\\development\\mes\\mes-basic",
+    "frontendPath": "D:\\development\\mes\\mes-basic"
+  },
+  "templates": [
+    {
+      "templateName": "java/multi/impl/BasicHandler.java.ftl",
+      "generatorPath": "${backendPath}/src/main/java/${packagePath}/${moduleName}/BasicHandler.java"
+    },
+    {
+      "templateName": "java/multi/impl/Handler.java.ftl",
+      "generatorPath": "${backendPath}/src/main/java/${packagePath}/${moduleName}/Handler.java"
+    },
+    {
+      "templateName": "java/multi/crud/Controller.java.ftl",
+      "generatorPath": "${backendPath}/src/main/java/${packagePath}/${moduleName}/controller/${ClassName}Controller.java"
+    },
+    {
+      "templateName": "java/multi/crud/Bo.java.ftl",
+      "generatorPath": "${backendPath}/src/main/java/${packagePath}/${moduleName}/service/impl/${ClassName}Bo.java"
+    },
+    {
+      "templateName": "java/multi/crud/Entity.java.ftl",
+      "generatorPath": "${backendPath}/src/main/java/${packagePath}/${moduleName}/entity/${ClassName}Entity.java"
+    },
+    {
+      "templateName": "java/multi/crud/Dao.java.ftl",
+      "generatorPath": "${backendPath}/src/main/java/${packagePath}/${moduleName}/dao/${ClassName}Dao.java"
+    },
+    {
+      "templateName": "xml/Dao.xml.ftl",
+      "generatorPath": "${backendPath}/src/main/resources/mapper/${moduleName}/${ClassName}Dao.xml"
+    },
+    {
+      "templateName": "java/multi/crud/Request.java.ftl",
+      "generatorPath": "${backendPath}/src/main/java/${packagePath}/${moduleName}/dao/${ClassName}Request.java"
+    },
+    {
+      "templateName": "java/multi/crud/PageRequest.java.ftl",
+      "generatorPath": "${backendPath}/src/main/resources/mapper/${moduleName}/${ClassName}PageRequest.xml"
+    },
+    {
+      "templateName": "java/multi/crud/Vo.java.ftl",
+      "generatorPath": "${backendPath}/src/main/resources/mapper/${moduleName}/${ClassName}Vo.xml"
+    },
+
+    {
+      "templateName": "java/multi/crud/Controller.java.ftl",
+      "generatorPath": "${backendPath}/src/main/java/${packagePath}/${moduleName}/controller/${ClassName}Controller.java"
+    },
+    {
+      "templateName": "java/multi/crud/Bo.java.ftl",
+      "generatorPath": "${backendPath}/src/main/java/${packagePath}/${moduleName}/service/impl/${ClassName}Bo.java"
+    },
+    {
+      "templateName": "java/multi/crud/Entity.java.ftl",
+      "generatorPath": "${backendPath}/src/main/java/${packagePath}/${moduleName}/entity/${ClassName}Entity.java"
+    },
+    {
+      "templateName": "jjava/multi/crud/Dao.java.ftl",
+      "generatorPath": "${backendPath}/src/main/java/${packagePath}/${moduleName}/dao/${ClassName}Dao.java"
+    },
+    {
+      "templateName": "xml/Dao.xml.ftl",
+      "generatorPath": "${backendPath}/src/main/resources/mapper/${moduleName}/${ClassName}Dao.xml"
+    },
+    {
+      "templateName": "java/multi/crud/Request.java.ftl",
+      "generatorPath": "${backendPath}/src/main/java/${packagePath}/${moduleName}/dao/${ClassName}Request.java"
+    },
+    {
+      "templateName": "java/multi/crud/PageRequest.java.ftl",
+      "generatorPath": "${backendPath}/src/main/resources/mapper/${moduleName}/${ClassName}PageRequest.java"
+    }
+  ]
+}

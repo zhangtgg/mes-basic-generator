@@ -1,0 +1,103 @@
+2024-08-18 04:15:23.071 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-08-18 04:15:23.100 [main] INFO  c.t.m.mes.basic.generator.GeneratorApplication - Starting GeneratorApplication using Java 17.0.4 with PID 23628 (D:\development\os_project\mes-generator\target\classes started by 14 in D:\development\os_project\mes-generator)
+2024-08-18 04:15:23.100 [main] INFO  c.t.m.mes.basic.generator.GeneratorApplication - The following 1 profile is active: "dev"
+2024-08-18 04:15:23.819 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8088 (http)
+2024-08-18 04:15:23.825 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8088"]
+2024-08-18 04:15:23.827 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-08-18 04:15:23.827 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-08-18 04:15:23.859 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-08-18 04:15:23.859 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 678 ms
+2024-08-18 04:15:24.064 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2024-08-18 04:15:24.148 [main] INFO  o.s.b.a.logging.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-08-18 04:17:37.807 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-08-18 04:17:37.833 [main] INFO  c.t.m.mes.basic.generator.GeneratorApplication - Starting GeneratorApplication using Java 17.0.4 with PID 11224 (D:\development\os_project\mes-generator\target\classes started by 14 in D:\development\os_project\mes-generator)
+2024-08-18 04:17:37.833 [main] INFO  c.t.m.mes.basic.generator.GeneratorApplication - The following 1 profile is active: "dev"
+2024-08-18 04:17:38.553 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8088 (http)
+2024-08-18 04:17:38.560 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8088"]
+2024-08-18 04:17:38.561 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-08-18 04:17:38.562 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-08-18 04:17:38.599 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-08-18 04:17:38.600 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 687 ms
+2024-08-18 04:17:39.211 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8088"]
+2024-08-18 04:17:39.309 [main] INFO  o.s.b.a.logging.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-08-18 04:17:49.053 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-08-18 04:17:49.083 [main] INFO  c.t.m.mes.basic.generator.GeneratorApplication - Starting GeneratorApplication using Java 17.0.4 with PID 25012 (D:\development\os_project\mes-generator\target\classes started by 14 in D:\development\os_project\mes-generator)
+2024-08-18 04:17:49.085 [main] INFO  c.t.m.mes.basic.generator.GeneratorApplication - The following 1 profile is active: "dev"
+2024-08-18 04:17:49.798 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8088 (http)
+2024-08-18 04:17:49.804 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8088"]
+2024-08-18 04:17:49.806 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-08-18 04:17:49.806 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-08-18 04:17:49.846 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-08-18 04:17:49.846 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 678 ms
+2024-08-18 04:17:50.432 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8088"]
+2024-08-18 04:17:50.517 [main] INFO  o.s.b.a.logging.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-08-18 04:18:04.194 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-08-18 04:18:04.222 [main] INFO  c.t.m.mes.basic.generator.GeneratorApplication - Starting GeneratorApplication using Java 17.0.4 with PID 6960 (D:\development\os_project\mes-generator\target\classes started by 14 in D:\development\os_project\mes-generator)
+2024-08-18 04:18:04.222 [main] INFO  c.t.m.mes.basic.generator.GeneratorApplication - The following 1 profile is active: "dev"
+2024-08-18 04:18:04.907 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8089 (http)
+2024-08-18 04:18:04.913 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8089"]
+2024-08-18 04:18:04.914 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-08-18 04:18:04.914 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-08-18 04:18:04.946 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-08-18 04:18:04.947 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 647 ms
+2024-08-18 04:18:05.534 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8089"]
+2024-08-18 04:18:05.546 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8089 (http) with context path ''
+2024-08-18 04:18:05.553 [main] INFO  c.t.m.mes.basic.generator.GeneratorApplication - Started GeneratorApplication in 1.577 seconds (process running for 2.053)
+2024-08-18 04:40:36.712 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-08-18 04:40:36.742 [main] INFO  c.t.m.mes.basic.generator.GeneratorApplication - Starting GeneratorApplication using Java 17.0.4 with PID 17684 (D:\development\os_project\mes-generator\target\classes started by 14 in D:\development\os_project\mes-generator)
+2024-08-18 04:40:36.743 [main] INFO  c.t.m.mes.basic.generator.GeneratorApplication - The following 1 profile is active: "dev"
+2024-08-18 04:40:37.521 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8089 (http)
+2024-08-18 04:40:37.528 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8089"]
+2024-08-18 04:40:37.529 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-08-18 04:40:37.529 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-08-18 04:40:37.563 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-08-18 04:40:37.564 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 741 ms
+2024-08-18 04:40:38.254 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8089"]
+2024-08-18 04:40:38.271 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8089 (http) with context path ''
+2024-08-18 04:40:38.279 [main] INFO  c.t.m.mes.basic.generator.GeneratorApplication - Started GeneratorApplication in 1.774 seconds (process running for 2.259)
+2024-08-18 04:46:00.739 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-08-18 04:46:00.765 [main] INFO  c.t.m.mes.basic.generator.GeneratorApplication - Starting GeneratorApplication using Java 17.0.4 with PID 11572 (D:\development\os_project\mes-generator\target\classes started by 14 in D:\development\os_project\mes-generator)
+2024-08-18 04:46:00.766 [main] INFO  c.t.m.mes.basic.generator.GeneratorApplication - The following 1 profile is active: "dev"
+2024-08-18 04:46:01.459 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8089 (http)
+2024-08-18 04:46:01.464 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8089"]
+2024-08-18 04:46:01.465 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-08-18 04:46:01.465 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-08-18 04:46:01.496 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-08-18 04:46:01.496 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 648 ms
+2024-08-18 04:46:02.098 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8089"]
+2024-08-18 04:46:02.109 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8089 (http) with context path ''
+2024-08-18 04:46:02.115 [main] INFO  c.t.m.mes.basic.generator.GeneratorApplication - Started GeneratorApplication in 1.584 seconds (process running for 2.074)
+2024-08-18 04:46:07.301 [http-nio-8089-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-08-18 04:46:07.301 [http-nio-8089-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-08-18 04:46:07.301 [http-nio-8089-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2024-08-18 04:46:07.400 [http-nio-8089-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-08-18 04:46:07.660 [http-nio-8089-exec-1] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@56e6564
+2024-08-18 04:46:07.661 [http-nio-8089-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-08-18 04:47:13.487 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-08-18 04:47:13.491 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2024-08-18 04:47:14.990 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.1.Final
+2024-08-18 04:47:15.015 [main] INFO  c.t.m.mes.basic.generator.GeneratorApplication - Starting GeneratorApplication using Java 17.0.4 with PID 7600 (D:\development\os_project\mes-generator\target\classes started by 14 in D:\development\os_project\mes-generator)
+2024-08-18 04:47:15.015 [main] INFO  c.t.m.mes.basic.generator.GeneratorApplication - The following 1 profile is active: "dev"
+2024-08-18 04:47:15.704 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8089 (http)
+2024-08-18 04:47:15.710 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8089"]
+2024-08-18 04:47:15.711 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2024-08-18 04:47:15.711 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.19]
+2024-08-18 04:47:15.742 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2024-08-18 04:47:15.743 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 650 ms
+2024-08-18 04:47:16.365 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8089"]
+2024-08-18 04:47:16.377 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8089 (http) with context path ''
+2024-08-18 04:47:16.382 [main] INFO  c.t.m.mes.basic.generator.GeneratorApplication - Started GeneratorApplication in 1.6 seconds (process running for 2.059)
+2024-08-18 04:47:21.479 [http-nio-8089-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-08-18 04:47:21.480 [http-nio-8089-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2024-08-18 04:47:21.481 [http-nio-8089-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2024-08-18 04:47:21.582 [http-nio-8089-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-08-18 04:47:21.853 [http-nio-8089-exec-1] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1c5b7af6
+2024-08-18 04:47:21.854 [http-nio-8089-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-08-18 04:54:25.206 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2024-08-18 04:54:25.209 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
