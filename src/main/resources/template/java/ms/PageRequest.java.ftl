@@ -1,8 +1,11 @@
+package cn.tfinfo.microservice.${packageName}.client.request.${moduleName};
 
 import cn.tfinfo.microservice.baseconstruct.request.PageRequest;
+import cn.tfinfo.microservice.${packageName}.common.entity.${moduleName}.${ClassName}Entity;
+import cn.tfinfo.microservice.${packageName}.common.entity.${moduleName}.${ClassName2}Entity;
 import lombok.Data;
 
-import java.util.List;
+import java.util.*;
 
 @Data
 public class ${ClassName}PageRequest extends PageRequest {

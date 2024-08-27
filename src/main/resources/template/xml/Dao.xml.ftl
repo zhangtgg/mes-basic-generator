@@ -3,13 +3,6 @@
 
 <mapper namespace="cn.tfinfo.microservice.${package}.persistance.dao.${moduleName}.${ClassName}Dao">
 
-    <!--字段映射-->
-    <resultMap id="${className}Map" type="cn.tfinfo.microservice.${package}.common.entity.${moduleName}.${ClassName}Entity">
-        <#list fieldList as field>
-        <result property="${field.attrName}" column="${field.fieldName}"/>
-        </#list>
-    </resultMap>
-
     <!--字段列表-->
     <sql id="Base_Column">
         <#list fieldList as field>
@@ -78,7 +71,7 @@
         </foreach>
     </update>
 
-    <!--删除-->
+    <!--批量删除-->
     <update id="deleteByIds">
         UPDATE
         ${tableName}
@@ -107,43 +100,30 @@
         </foreach>
     </update>
 
-    <!--====================================================查询操作START==========================================================-->
-    <!--====================================================查询操作START==========================================================-->
+    <!--====================================================↓↓↓↓↓↓查询操作↓↓↓↓↓↓==========================================================-->
 
     <!--分页查询-->
     <select id="queryList" resultType="cn.tfinfo.microservice.${package}.common.entity.${moduleName}.${ClassName}Entity">
         SELECT
-            table_alias.*
-        FROM (
-            SELECT
-                ott.*,
-                ROWNUM AS rowno
-            FROM (
-                SELECT
-                    t.*
-                FROM (
-                    SELECT
-                        <include refid="Base_Column"/>
-                    FROM  ${tableName} A
-                    WHERE 1 = 1
-                    <#list fieldList as field>
-                    <if test="${field.attrName} != null and ${field.attrName} != ''">
-                    and A.${field.fieldName} like CONCAT('%',CONCAT(${r'#{'}${field.attrName}${r'}'},'%'))
-                    </if>
-                    </#list>
-                    <if test="startDate != null and startDate != ''">
-                        and to_char(A.CREATE_DATE,'yyyy-MM-dd HH24:MI:SS') >= ${r'#{startDate}'}
-                    </if>
-                    <if test="endDate  != null and endDate != '' ">
-                        and to_char(A.CREATE_DATE,'yyyy-MM-dd HH24:MI:SS') <![CDATA[ <= ]]> ${r'#{endDate}'}
-                    </if>
-                        and A.DEL_FLAG = '0') t ORDER BY t.UPDATE_DATE DESC) ott
-                WHERE
-                ROWNUM <![CDATA[   <=  ]]> ${r'#{end}'}) table_alias
-        WHERE
-        table_alias.rowno > ${r'#{start}'}
+        <include refid="Base_Column"/>
+        FROM  ${tableName} A
+        WHERE 1 = 1
+        <#list fieldList as field>
+        <if test="${field.attrName} != null and ${field.attrName} != ''">
+        and A.${field.fieldName} like CONCAT('%',CONCAT(${r'#{'}${field.attrName}${r'}'},'%'))
+        </if>
+        </#list>
+        <if test="startDate != null and startDate != ''">
+            and to_char(A.CREATE_DATE,'yyyy-MM-dd HH24:MI:SS') >= ${r'#{startDate}'}
+        </if>
+        <if test="endDate  != null and endDate != '' ">
+            and to_char(A.CREATE_DATE,'yyyy-MM-dd HH24:MI:SS') <![CDATA[ <= ]]> ${r'#{endDate}'}
+        </if>
+        and A.DEL_FLAG = '0'
+        ORDER BY A.UPDATE_DATE DESC
     </select>
 
+    <!--根据id查询-->
     <select id="queryDetail" resultType="cn.tfinfo.microservice.${package}.common.entity.${moduleName}.${ClassName}Entity">
         SELECT
         <include refid="Base_Column"/>
@@ -152,6 +132,7 @@
         AND A.DEL_FLAG = '0'
     </select>
 
+    <!--根据parentId查询-->
     <select id="queryListByParentId"
             resultType="cn.tfinfo.microservice.${package}.common.entity.${moduleName}.${ClassName}Entity">
         select
@@ -161,13 +142,10 @@
         and A.DEL_FLAG = '0'
     </select>
 
-    <!--====================================================查询操作END==========================================================-->
-    <!--====================================================查询操作END==========================================================-->
 
+    <!--====================================================↓↓↓↓↓↓批量操作↓↓↓↓↓↓==========================================================-->
+    <!--==============================================↓↓↓↓↓↓批量操作请不要使用union语句↓↓↓↓↓↓=====================+==========================-->
 
-
-    <!--====================================================批量操作START==========================================================-->
-    <!--====================================================批量操作START==========================================================-->
     <!--批量插入-->
     <insert id="saveBatch">
         INSERT ALL
@@ -217,11 +195,6 @@
             ID = ${r'#{item.id}'}
         </foreach>
     </update>
-
-    <!--====================================================批量操作END==========================================================-->
-    <!--====================================================批量操作END==========================================================-->
-
-
 
 
 </mapper>

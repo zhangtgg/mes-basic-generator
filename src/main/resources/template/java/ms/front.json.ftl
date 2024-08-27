@@ -19,7 +19,12 @@
       "queryPannel": [
       <#list fieldList as field>
           <#if !field.baseField && field.fieldName != "ID">
-            {"label": "${field.fieldComment}","type": "input","model": "${field.attrName}","value": ""}<#if field_has_next>,</#if>
+              {
+              "label": "<#if field.fieldComment?has_content>${field.fieldComment}<#else>默认名称</#if>",
+              "type": "input",
+              "model": "${field.attrName}",
+              "value": ""
+              }<#if field_has_next>,</#if>
           </#if>
       </#list>
       ],
@@ -27,7 +32,11 @@
         "tableHeaders": [
             <#list fieldList as field>
                 <#if !field.baseField && field.fieldName != "ID">
-                    {"name": "${field.fieldComment}","code": "${field.attrName}","width": "100"}<#if field_has_next>,</#if>
+                    {
+                    "name": "<#if field.fieldComment?has_content>${field.fieldComment}<#else>默认名称</#if>",
+                    "code": "${field.attrName}",
+                    "width": "100"
+                    }<#if field_has_next>,</#if>
                 </#if>
             </#list>
         ]
@@ -37,7 +46,11 @@
       "baseInfo": [
         <#list fieldList as field>
             <#if !field.baseField && field.fieldName != "ID">
-            {"label": "${field.fieldComment}","type": "input","model": "${field.attrName}"}<#if field_has_next>,</#if>
+                {
+                "label": "<#if field.fieldComment?has_content>${field.fieldComment}<#else>默认名称</#if>",
+                "type": "input",
+                "model": "${field.attrName}"
+                }<#if field_has_next>,</#if>
             </#if>
         </#list>
 
@@ -55,7 +68,12 @@
           "tableHeaders": [
             <#list fieldList2 as field>
                 <#if !field.baseField && field.fieldName != "ID">
-                {"name": "${field.fieldComment}","code": "${field.attrName}","type": "input","width": 100}<#if field_has_next>,</#if>
+                    {
+                    "name": "<#if field.fieldComment?has_content>${field.fieldComment}<#else>默认名称</#if>",
+                    "code": "${field.attrName}",
+                    "type": "input",
+                    "width": 100
+                    }<#if field_has_next>,</#if>
                 </#if>
             </#list>
           ]

@@ -1,4 +1,4 @@
-package cn.tfinfo.microservice.${package}.persistance.dao.${moduleName};
+package cn.tfinfo.microservice.${packageName}.persistance.dao.${moduleName};
 
 import cn.tfinfo.microservice.${package}.common.entity.${moduleName}.${ClassName}Entity;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;

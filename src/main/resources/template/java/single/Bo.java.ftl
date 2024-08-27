@@ -1,8 +1,7 @@
+package cn.tfinfo.microservice.${packageName}.biz.${moduleName};
 
 import org.springframework.beans.BeanUtils;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+
 import cn.tfinfo.microservice.baseconstruct.response.BaseResponse;
 import cn.tfinfo.microservice.baseconstruct.utils.CollectionUtils;
 import cn.tfinfo.microservice.baseconstruct.utils.StringUtils;
@@ -15,14 +14,21 @@ import cn.tfinfo.microservice.mes.basic.common.enums.SysActiveFlag;
 import cn.tfinfo.microservice.mes.basic.common.enums.SysDelFlag;
 import cn.tfinfo.microservice.mes.basic.common.local.DbCsLocal;
 import cn.tfinfo.microservice.mes.basic.common.exception.CommonException;
+import cn.tfinfo.microservice.${packageName}.common.entity.${moduleName}.${ClassName}Entity;
 import cn.tfinfo.microservice.${package}.persistance.dao.${moduleName}.${ClassName}Dao;
 
-import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.*;
+
+import static cn.tfinfo.microservice.mes.basic.common.constants.CommonConstants.UNUSED_RETURN_VALUE;
 
 /**
 * ${"<p> 业务层 </p>"}
 *
-* @author zhangtg
+* @author MES
 * @description
 * @date ${.now?string("yyyy/MM/dd")}
 */
@@ -40,7 +46,7 @@ public class ${ClassName}Bo {
             // 字典转义
             translatePageList(${className}List);
         }
-        return ${ClassName}List;
+        return ${className}List;
     }
 
     /**
@@ -87,7 +93,7 @@ public class ${ClassName}Bo {
     }
 
     public ${ClassName}Entity queryDetail(String id) {
-        ${ClassName}Entity entity = ${className}Dao.queryDetail(id)
+        ${ClassName}Entity entity = ${className}Dao.queryDetail(id);
         if(entity == null) {
             throw new CommonException("参数异常");
         }

@@ -6,7 +6,8 @@
     "add": "/api/${r"${System.SYSTEM_KONKA_API}"}/${className}/save",
     "update": "/api/${r"${System.SYSTEM_KONKA_API}"}/${className}/save",
     "remove": "/api/${r"${System.SYSTEM_KONKA_API}"}/${className}/deleteByIds",
-    "detail": "/api/${r"${System.SYSTEM_KONKA_API}"}/${className}/queryDetail"
+    "detail": "/api/${r"${System.SYSTEM_KONKA_API}"}/${className}/queryDetail",
+    "updateStatus": "/api/${r"${System.SYSTEM_KONKA_API}"}/${className}/active"
   },
   "menuMap": {
     "id": "",
@@ -17,19 +18,28 @@
     "onlyQuery": false,
     "index": {
       "queryPannel": [
-      <#list fieldList as field>
-          <#if !field.baseField && field.fieldName != "ID">
-            {"label": "${field.fieldComment}","type": "input","model": "${field.attrName}","value": ""}<#if field_has_next>,</#if>
-          </#if>
-      </#list>
+        <#list fieldList as field>
+            <#if !field.baseField && field.fieldName != "ID">
+            {
+            "label": "<#if field.fieldComment?has_content>${field.fieldComment}<#else>默认名称</#if>",
+            "type": "input",
+            "model": "${field.attrName}",
+            "value": ""
+            }<#if field_has_next>,</#if>
+            </#if>
+        </#list>
       ],
       "table": {
         "tableHeaders": [
-            <#list fieldList as field>
-                <#if !field.baseField && field.fieldName != "ID">
-                    {"name": "${field.fieldComment}","code": "${field.attrName}","width": "100"}<#if field_has_next>,</#if>
-                </#if>
-            </#list>
+        <#list fieldList as field>
+            <#if !field.baseField && field.fieldName != "ID">
+                {
+                "name": "<#if field.fieldComment?has_content>${field.fieldComment}<#else>默认名称</#if>",
+                "code": "${field.attrName}",
+                "width": "100"
+                }<#if field_has_next>,</#if>
+            </#if>
+        </#list>
         ]
       }
     },
@@ -37,7 +47,11 @@
       "baseInfo": [
         <#list fieldList as field>
             <#if !field.baseField && field.fieldName != "ID">
-            {"label": "${field.fieldComment}","type": "input","model": "${field.attrName}"}<#if field_has_next>,</#if>
+                {
+                "label": "<#if field.fieldComment?has_content>${field.fieldComment}<#else>默认名称</#if>",
+                "type": "input",
+                "model": "${field.attrName}"
+                }<#if field_has_next>,</#if>
             </#if>
         </#list>
 
@@ -55,7 +69,12 @@
           "tableHeaders": [
             <#list fieldList as field>
                 <#if !field.baseField && field.fieldName != "ID">
-                {"name": "${field.fieldComment}","code": "${field.attrName}","type": "input","width": 100}<#if field_has_next>,</#if>
+                    {
+                    "name": "<#if field.fieldComment?has_content>${field.fieldComment}<#else>默认名称</#if>",
+                    "code": "${field.attrName}",
+                    "type": "input",
+                    "width": 100
+                    }<#if field_has_next>,</#if>
                 </#if>
             </#list>
           ]

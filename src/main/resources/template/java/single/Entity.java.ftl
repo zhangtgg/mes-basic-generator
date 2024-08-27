@@ -1,7 +1,10 @@
+package cn.tfinfo.microservice.${packageName}.common.entity.${moduleName};
 
 import lombok.Data;
 import com.baomidou.mybatisplus.annotation.*;
 import cn.tfinfo.microservice.common.logs.service.common.entity.DataEntity;
+
+import java.util.*;
 
 @Data
 @TableName("${tableName}")

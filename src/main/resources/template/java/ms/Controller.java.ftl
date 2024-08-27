@@ -1,5 +1,8 @@
+package cn.tfinfo.microservice.${packageName}.client.webcontroller.${moduleName};
 
 import cn.hutool.core.bean.BeanUtil;
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
 import cn.tfinfo.microservice.baseconstruct.enums.BaseErrorCode;
 import cn.tfinfo.microservice.baseconstruct.param.annotation.RequestController;
 import cn.tfinfo.microservice.baseconstruct.param.annotation.UserTicket;
@@ -14,6 +17,7 @@ import cn.tfinfo.microservice.${package}.biz.${moduleName}.${ClassName}Bo;
 import cn.tfinfo.microservice.${package}.client.request.${moduleName}.${ClassName}Request;
 import cn.tfinfo.microservice.${package}.client.request.${moduleName}.${ClassName}PageRequest;
 import cn.tfinfo.microservice.${package}.common.entity.${moduleName}.${ClassName}Entity;
+
 import org.springframework.web.bind.annotation.*;
 import lombok.extern.slf4j.Slf4j;
 
@@ -25,7 +29,7 @@ import static java.lang.Boolean.TRUE;
 /**
 * ${"<p> 控制层 </p>"}
 *
-* @author zhangtg
+* @author MES
 * @description
 * @date ${.now?string("yyyy/MM/dd")}
 */
@@ -37,15 +41,9 @@ public class ${ClassName}Controller {
     @Autowired
     private ${ClassName}Bo ${className}Bo;
 
-    /**
-    * 列表
-    *
-    * @param request 请求
-    * @return {@link BaseResponse }
-    */
     @UserTicket
     @GetMapping("/findList")
-    public BaseResponse findList(${ClassName}PageRequest request){
+    public BaseResponse findList(${ClassName}PageRequest request) {
         ListResponse<${ClassName}Entity> response = new ListResponse<>(Boolean.TRUE, SUCCESS);
         ${ClassName}Entity entity = BeanUtil.copyProperties(request, ${ClassName}Entity.class);
         Page<${ClassName}Entity> result = PageHelper.startPage(request.getPageNo(), request.getPageSize());
@@ -55,29 +53,17 @@ public class ${ClassName}Controller {
         return response;
     }
 
-    /**
-    * 详情
-    *
-    * @param request 请求
-    * @return {@link BaseResponse }
-    */
     @UserTicket
     @GetMapping("/queryDetail")
-    public BaseResponse queryDetail(IdOrclRequest request){
+    public BaseResponse queryDetail(IdOrclRequest request) {
         EntityResponse<${ClassName}Entity> response = new EntityResponse<>(TRUE, SUCCESS);
         response.setData(${className}Bo.queryDetail(request.getId()));
         return response;
     }
 
-    /**
-    * 保存
-    *
-    * @param request 请求
-    * @return {@link BaseResponse }
-    */
     @UserTicket
     @PostMapping("/save")
-    public BaseResponse save(${ClassName}Request request){
+    public BaseResponse save(${ClassName}Request request) {
         BaseResponse response = new BaseResponse(Boolean.TRUE, BaseErrorCode.SUCCESS);
         ${ClassName}Entity entity = new ${ClassName}Entity();
         BeanUtils.copyProperties(request, entity);
@@ -85,12 +71,6 @@ public class ${ClassName}Controller {
         return response;
     }
 
-    /**
-    * 删除
-    *
-    * @param request 请求
-    * @return {@link BaseResponse }
-    */
     @UserTicket
     @PostMapping("/deleteByIds")
     public BaseResponse deleteByIds(IdsRequest request) {
@@ -100,8 +80,8 @@ public class ${ClassName}Controller {
     }
 
     @UserTicket
-    @PostMapping("/active")
-    public BaseResponse activePlan(IdsFlagRequest request) {
+    @PostMapping("/updateStatus")
+    public BaseResponse updateStatus(IdsFlagRequest request) {
         BaseResponse response = new BaseResponse(Boolean.TRUE, BaseErrorCode.SUCCESS);
         ${className}Bo.updateStatus(request.getIds(), request.getFlag());
         return response;

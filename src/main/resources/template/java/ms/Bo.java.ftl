@@ -1,3 +1,4 @@
+package cn.tfinfo.microservice.${packageName}.biz.${moduleName};
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,18 +17,18 @@ import cn.tfinfo.microservice.mes.basic.common.enums.SysDelFlag;
 import cn.tfinfo.microservice.mes.basic.common.local.DbCsLocal;
 import cn.tfinfo.microservice.mes.basic.common.annotation.PageList;
 import cn.tfinfo.microservice.mes.basic.common.enums.BaseSysCode;
+import cn.tfinfo.microservice.${packageName}.common.entity.${moduleName}.${ClassName}Entity;
+import cn.tfinfo.microservice.${packageName}.common.entity.${moduleName}.${ClassName2}Entity;
 import cn.tfinfo.microservice.${package}.persistance.dao.${moduleName}.${ClassName}Dao;
 import cn.tfinfo.microservice.${package}.persistance.dao.${moduleName}.${ClassName2}Dao;
 import cn.tfinfo.microservice.usercenter.shared.facade.UserFacade;
 
 import java.util.*;
 
-import static cn.tfinfo.microservice.mes.basic.common.constants.CommonConstants.UNUSED_RETURN_VALUE;
-
 /**
 * ${"<p> 业务层 </p>"}
 *
-* @author zhangtg
+* @author MES
 * @description
 * @date ${.now?string("yyyy/MM/dd")}
 */
@@ -43,12 +44,9 @@ public class ${ClassName}Bo {
     @Autowired
     private McComFormTypeBo mcComFormTypeBo;
 
-    /**
-    * 列表
-    *
-    * @param entity 实体
-    * @return {@link List }<{@link ${ClassName}Entity }>
-    */
+    @Autowired
+    private UserFacade userFacade;
+
     @PageList
     public List<${ClassName}Entity> queryList(${ClassName}Entity entity) {
 
@@ -62,24 +60,15 @@ public class ${ClassName}Bo {
 
     /**
     * 字典转换
-    *
-    * @param ${className}List 待转换列表
     */
-    @DictEscape
-    @SuppressWarnings(UNUSED_RETURN_VALUE)
     public List<${ClassName}Entity> translatePageList(List<${ClassName}Entity> ${className}List) {
+        Map<String, String> dict = DictBo.getDictMap("");
         for (${ClassName}Entity entity : ${className}List) {
 
         }
         return ${className}List;
     }
 
-    /**
-    * 保存更新
-    *
-    * @param ${className}Entity 待处理实体
-    * @return {@link BaseResponse }
-    */
     @Transactional(rollbackFor = Exception.class, timeout = 5)
     public BaseResponse saveOrUpdate(${ClassName}Entity ${className}Entity) {
         BaseResponse response = new BaseResponse();
@@ -93,11 +82,6 @@ public class ${ClassName}Bo {
         return response;
     }
 
-    /**
-    * 处理主表
-    *
-    * @param ${className}Entity 待处理实体
-    */
     public void handleMainEntity(${ClassName}Entity ${className}Entity) {
         if (StringUtils.isEmpty(${className}Entity.getId())) {
             ${className}Entity.preInsert();
@@ -110,17 +94,13 @@ public class ${ClassName}Bo {
 
 
     private String generateSerialNo() {
-        BaseReturn<String> result = mcComFormTypeBo.generateCode(AFTER_SERVICE_DOCUMENT_NO);
+        BaseReturn<String> result = mcComFormTypeBo.generateCode("");
         if (result.hasError()) {
             throw new CommonException(result.getMsg());
         }
         return result.getT();
     }
-    /**
-    * 处理子表
-    *
-    * @param ${className}Entity 待处理实体
-    */
+
     public void handleSubEntities(${ClassName}Entity ${className}Entity) {
         List<${ClassName2}Entity> ${className2}List = ${className}Entity.get${ClassName2}List();
         if (CollectionUtils.isEmpty(${className2}List)) {
@@ -156,31 +136,16 @@ public class ${ClassName}Bo {
         }
     }
 
-    /**
-    * 更新
-    */
     public void updateStatus(List<String> ids, String flag) {
         ${className}Dao.updateStatus(flag, DbCsLocal.getUserId(), ids);
     }
 
-    /**
-    * 批量删除
-    *
-    * @param ids ids
-    */
     @Transactional(rollbackFor = {Exception.class}, timeout = 5)
     public void deleteByIds(List<String> ids) {
         ${className}Dao.deleteByIds(ids, DbCsLocal.getUserId());
         ${className2}Dao.deleteByParentIds(ids, DbCsLocal.getUserId());
     }
 
-
-    /**
-    * 详情
-    *
-    * @param id id
-    * @return {@link ${ClassName}Entity }
-    */
     public ${ClassName}Entity queryDetail(String id) {
         ${ClassName}Entity entity = ${className}Dao.queryDetail(id);
         if(entity == null) {
@@ -191,12 +156,6 @@ public class ${ClassName}Bo {
         return entity;
     }
 
-    /**
-    * 列表转换
-    *
-    * @param ${className2}List 待处理列表
-    * @return {@link List }<{@link ${ClassName2}Entity }>
-    */
     public List<${ClassName2}Entity> translateDetailList(List<${ClassName2}Entity> ${className2}List) {
         Set<String> idList = ${className2}List
                 .stream()

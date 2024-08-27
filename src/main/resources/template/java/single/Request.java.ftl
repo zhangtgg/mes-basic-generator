@@ -1,8 +1,9 @@
+package cn.tfinfo.microservice.${packageName}.client.request.${moduleName};
 
 import cn.tfinfo.microservice.baseconstruct.request.BaseRequest;
 import lombok.Data;
 
-import java.util.List;
+import java.util.*;
 
 @Data
 public class ${ClassName}Request extends BaseRequest {
