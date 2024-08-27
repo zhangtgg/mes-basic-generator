@@ -52,22 +52,13 @@ public class GeneratorController {
      */
     @ResponseBody
     @PostMapping("code")
-    public Result<String> code(@RequestBody Long[] tableIds) throws Exception {
+    public Result<String> code(@RequestBody Long[] ids) throws Exception {
         // 生成代码
-        for (Long tableId : tableIds) {
-            generatorService.generatorCode(tableId);
+        for (Long id : ids) {
+            generatorService.generatorCode(id);
         }
 
         return Result.ok();
-    }
-
-    /**
-     * 预览代码
-     */
-    @GetMapping("/preview")
-    public Result<List<PreviewVO>> preview(@RequestParam Long tableId) throws Exception {
-        List<PreviewVO> results = generatorService.preview(tableId);
-        return Result.ok(results);
     }
 
     /**

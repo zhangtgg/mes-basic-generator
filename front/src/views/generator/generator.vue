@@ -28,7 +28,7 @@
 			<el-row>
 				<el-col :span="12">
 					<el-form-item label="项目名" prop="packageName">
-						<el-input v-model="dataForm.packageName"  placeholder="项目类型"></el-input>
+						<el-input v-model="dataForm.packageName" :disabled = true placeholder="项目类型"></el-input>
 					</el-form-item>
 				</el-col>
 			</el-row>
@@ -74,9 +74,9 @@ const dataForm = reactive({
 	tableName: ''
 })
 
-const init = (id: number) => {
+const init = (id: any) => {
 	visible.value = true
-	dataForm.id = ''
+	dataForm.id = id
 
 	// 重置表单数据
 	if (dataFormRef.value) {
@@ -91,20 +91,6 @@ const getTable = (id: number) => {
 		Object.assign(dataForm, res.data)
 	})
 }
-
-const dataRules = ref({
-	tableName: [{ required: true, message: '必填项不能为空', trigger: 'blur' }],
-	tableComment: [{ required: true, message: '必填项不能为空', trigger: 'blur' }],
-	className: [{ required: true, message: '必填项不能为空', trigger: 'blur' }],
-	packageName: [{ required: true, message: '必填项不能为空', trigger: 'blur' }],
-	author: [{ required: true, message: '必填项不能为空', trigger: 'blur' }],
-	moduleName: [{ required: true, message: '必填项不能为空', trigger: 'blur' }],
-	functionName: [{ required: true, message: '必填项不能为空', trigger: 'blur' }],
-	generatorType: [{ required: true, message: '必填项不能为空', trigger: 'blur' }],
-	formLayout: [{ required: true, message: '必填项不能为空', trigger: 'blur' }],
-	backendPath: [{ required: true, message: '必填项不能为空', trigger: 'blur' }],
-	frontendPath: [{ required: true, message: '必填项不能为空', trigger: 'blur' }]
-})
 
 // 保存
 const submitHandle = () => {
@@ -137,7 +123,7 @@ const generatorHandle = () => {
 		await useTableSubmitApi(dataForm)
 
 		// 生成代码，自定义路径
-		useGeneratorApi([dataForm.id]).then(() => {
+		useGeneratorApi([dataForm.genListId]).then(() => {
 			ElMessage.success({
 				message: '操作成功',
 				duration: 500,

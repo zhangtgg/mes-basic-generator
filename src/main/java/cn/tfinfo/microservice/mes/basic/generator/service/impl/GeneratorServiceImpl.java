@@ -21,6 +21,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
+import org.springframework.util.StringUtils;
 
 import java.io.File;
 import java.io.IOException;
@@ -73,19 +74,11 @@ public class GeneratorServiceImpl implements GeneratorService {
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public void generatorCode(Long tableId) {
-        // 数据模型
-        Map<String, Object> dataModel = getDataModel(tableId);
-
-        // 代码生成器信息
-        GeneratorInfo generator = generatorConfig.getGeneratorConfig();
-
-        // 渲染模板并输出
-        for (TemplateInfo template : generator.getTemplates()) {
-            dataModel.put("templateName", template.getTemplateName());
-            String content = TemplateUtils.getContent(template.getTemplateContent(), dataModel);
-            String path = TemplateUtils.getContent(template.getGeneratorPath(), dataModel);
-
+    public void generatorCode(Long id) {
+        List<PreviewVO> previews = previews(id);
+        for (PreviewVO vo : previews) {
+            String content = vo.getContent();
+            String path = vo.getPath();
             FileUtil.writeUtf8String(content, path);
         }
     }
@@ -98,7 +91,6 @@ public class GeneratorServiceImpl implements GeneratorService {
     private Map<String, Object> getDataModel(Long tableId) {
         // 主表ID
         Long MTableId = Config.getInstance().getMTableId();
-        String templateFile = Config.getInstance().getTemplateFile();
         List<GenListDtlEntity> genListDtlEntityList = Config.getInstance().getGenListDtlEntityList();
 
         // 表信息
@@ -129,7 +121,8 @@ public class GeneratorServiceImpl implements GeneratorService {
 
         // 项目信息
         dataModel.put("package", table.getPackageName());
-        dataModel.put("packagePath", table.getPackageName().replace(".", File.separator));
+        dataModel.put("packageName", table.getPackageName());
+        dataModel.put("packagePath", table.getPackageName().replace(".", "-"));
         dataModel.put("version", table.getVersion());
         dataModel.put("moduleName", table.getModuleName());
         dataModel.put("ModuleName", StrUtil.upperFirst(table.getModuleName()));
@@ -137,11 +130,28 @@ public class GeneratorServiceImpl implements GeneratorService {
         dataModel.put("FunctionName", StrUtil.upperFirst(table.getFunctionName()));
         dataModel.put("formLayout", table.getFormLayout());
 
+
+        String packageName = table.getPackageName();
+
+        String[] parts = packageName.split("\\.", 2); // 只分隔成两个部分
+
+        if (parts.length == 2) {
+            String firstPart = parts[0];
+            String secondPart = parts[1];
+
+            dataModel.put("firstPart", firstPart);
+            dataModel.put("secondPart", secondPart);
+            dataModel.put("packageName2", firstPart + "\\\\" + secondPart);
+        } else {
+            dataModel.put("packageName2",packageName);
+        }
+
         // 开发者信息
         dataModel.put("author", table.getAuthor());
         dataModel.put("email", table.getEmail());
         dataModel.put("datetime", DateUtils.format(new Date(), DateUtils.DATE_TIME_PATTERN));
         dataModel.put("date", DateUtils.format(new Date(), DateUtils.DATE_PATTERN));
+
 
         // 设置字段分类
         setFieldTypeList(dataModel, table);
@@ -161,8 +171,8 @@ public class GeneratorServiceImpl implements GeneratorService {
         dataModel.put("fieldList", table.getFieldList());
 
         // 生成路径
-        dataModel.put("backendPath", table.getBackendPath());
-        dataModel.put("frontendPath", table.getFrontendPath());
+        dataModel.put("backendPath", StrUtil.isEmpty(table.getBackendPath()) ? "backendPath" : table.getBackendPath());
+        dataModel.put("frontendPath", StrUtil.isEmpty(table.getFrontendPath()) ? "frontendPath" : table.getFrontendPath());
 
 
 
@@ -236,26 +246,6 @@ public class GeneratorServiceImpl implements GeneratorService {
     /**
      * 代码预览
      *
-     * @param tableId 表ID
-     * @return 预览内容
-     */
-    @Override
-    public List<PreviewVO> preview(Long tableId) {
-        Map<String, Object> dataModel = getDataModel(tableId);
-        // 代码生成器信息
-        GeneratorInfo generator = generatorConfig.getGeneratorConfig();
-        return generator.getTemplates().stream().map(t -> {
-            dataModel.put("templateName", t.getTemplateName());
-            String content = TemplateUtils.getContent(t.getTemplateContent(), dataModel);
-            String fileName = t.getGeneratorPath().substring(t.getGeneratorPath().lastIndexOf("/") + 1);
-            fileName = TemplateUtils.getContent(fileName, dataModel);
-            return new PreviewVO(fileName, content);
-        }).collect(Collectors.toList());
-    }
-
-    /**
-     * 代码预览
-     *
      * @return 预览内容
      */
     @Override
@@ -290,7 +280,8 @@ public class GeneratorServiceImpl implements GeneratorService {
                     continue;
                 }
                 String content = TemplateUtils.getContent(t.getTemplateContent(), dataModel);
-                previewList.add(new PreviewVO(TemplateUtils.getContent(fileName, dataModel), content));
+                String path = TemplateUtils.getContent(t.getGeneratorPath(), dataModel);
+                previewList.add(new PreviewVO(TemplateUtils.getContent(fileName, dataModel), content, path));
             }
         }
         return previewList;
@@ -328,10 +319,10 @@ public class GeneratorServiceImpl implements GeneratorService {
     }
 
     public void choseTemplate(List<Long> tableIdList,Long MTableId,List<GenListDtlEntity> genListDtlEntityList) {
-        switch (tableIdList.size()) {
-            case 1 -> Config.getInstance().setTemplateFile("single.json");
-            case 2 -> Config.getInstance().setTemplateFile("ms.json");
-            default -> Config.getInstance().setTemplateFile("multi.json");
+        if (tableIdList.size() == 2) {
+            Config.getInstance().setTemplateFile("ms.json");
+        } else {
+            Config.getInstance().setTemplateFile("single.json");
         }
         Config.getInstance().setMTableId(MTableId);
         Config.getInstance().setGenListDtlEntityList(genListDtlEntityList);

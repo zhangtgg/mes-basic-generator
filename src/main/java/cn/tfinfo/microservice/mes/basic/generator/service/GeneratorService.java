@@ -13,9 +13,7 @@ public interface GeneratorService {
 
     void downloadCode(Long tableId, ZipOutputStream zip);
 
-    void generatorCode(Long tableId);
-
-    List<PreviewVO> preview(Long tableId);
+    void generatorCode(Long id);
 
     List<PreviewVO> previews(Long id);
 }

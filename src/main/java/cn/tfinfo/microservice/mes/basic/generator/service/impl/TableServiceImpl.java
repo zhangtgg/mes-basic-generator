@@ -89,10 +89,6 @@ public class TableServiceImpl extends BaseServiceImpl<TableDao, TableEntity> imp
         // 保存表信息
         table.setPackageName(generator.getProject().getPackageName());
         table.setVersion(generator.getProject().getVersion());
-        table.setBackendPath(generator.getProject().getBackendPath());
-        table.setFrontendPath(generator.getProject().getFrontendPath());
-        table.setAuthor(generator.getDeveloper().getAuthor());
-        table.setEmail(generator.getDeveloper().getEmail());
         table.setFormLayout(FormLayoutEnum.ONE.getValue());
         table.setGeneratorType(GeneratorTypeEnum.ZIP_DOWNLOAD.ordinal());
         table.setClassName(NamingCase.toPascalCase(tableName));

@@ -24,5 +24,10 @@ public class PreviewVO {
      */
     private String content;
 
+    /**
+     * 文件路径
+     */
+    private String path;
+
 
 }
