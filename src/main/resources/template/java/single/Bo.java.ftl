@@ -54,9 +54,8 @@ public class ${ClassName}Bo {
     *
     * @param ${className}List 待转换列表
     */
-    @DictEscape
-    @SuppressWarnings(UNUSED_RETURN_VALUE)
     public List<${ClassName}Entity> translatePageList(List<${ClassName}Entity> ${className}List) {
+        Map<String, String> dict = DictBo.getDictMap("");
         for (${ClassName}Entity entity : ${className}List) {
 
         }

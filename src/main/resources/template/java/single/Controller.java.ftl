@@ -1,6 +1,6 @@
 package cn.tfinfo.microservice.${packageName}.client.webcontroller.${moduleName};
 
-import org.springframework.beans.BeanUtils;
+import cn.hutool.core.bean.BeanUtil;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import cn.tfinfo.microservice.baseconstruct.enums.BaseErrorCode;
@@ -47,6 +47,7 @@ public class ${ClassName}Controller {
     public BaseResponse findList(${ClassName}PageRequest request){
         ListResponse<${ClassName}Entity> response = new ListResponse<>(Boolean.TRUE, SUCCESS);
         ${ClassName}Entity entity = BeanUtil.copyProperties(request, ${ClassName}Entity.class);
+        Page<${ClassName}Entity> result = PageHelper.startPage(request.getPageNo(), request.getPageSize());
         List<${ClassName}Entity> list = ${className}Bo.queryList(entity);
         response.setRows(list);
         PageUtils.getPageInfo(response, request.getPageNo(), request.getPageSize(), (int) result.getTotal());

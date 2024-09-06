@@ -3,7 +3,7 @@
 		<div class="btn">
 			<el-button type="primary" @click="handleSave">保存</el-button>
 			<el-button type="danger" @click="handleBack">返回</el-button>
-			<el-button type="warning" @click="generatorHandle(formInfo.id)">生成JAVA代码</el-button>
+<!--			<el-button type="warning" @click="generatorHandle(formInfo.id)">生成JAVA代码</el-button>-->
 			<el-button type="success" @click="importHandle" :disabled="isImportButtonDisabled">导入</el-button>
 		</div>
 		<div class="form">
